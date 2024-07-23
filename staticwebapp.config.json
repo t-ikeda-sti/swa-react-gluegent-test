@@ -1,5 +1,27 @@
 {
     "navigationFallback": {
         "rewrite": "/index.html"
+    },
+    "auth": {
+    "identityProviders": {
+      "customOpenIdConnectProviders": {
+        "myProvider": {
+          "registration": {
+            "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
+            "clientCredential": {
+              "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET_APP_SETTING_NAME"
+            },
+            "openIdConnectConfiguration": {
+              "wellKnownOpenIdConfiguration": "https://auth.stg-gate.work/oidc/.well-known/openid-configuration"
+            }
+          },
+          "login": {
+            "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+            "scopes": [],
+            "loginParameterNames": []
+          }
+        }
+      }
     }
+  }
 }
