@@ -7,9 +7,10 @@ async function getUserInfo() {
   return clientPrincipal;
 }
 
-async function App() {
-  const userInfo = await getUserInfo();
-  return <div>Login User: {JSON.stringify(userInfo, undefined, 2)}</div>;
+function App() {
+  const value = "World";
+  (async () => console.log(await getUserInfo()))();
+  return <div>Hello {value}</div>;
 }
 
 export default App;
