@@ -30,6 +30,13 @@
       "allowedRoles": [
         "authenticated"
       ]
+    },
+    {
+      "route": "/api/*",
+      "allowedRoles": [
+        "authenticated",
+        "AdminSystem"
+      ]
     }
   ],
   "responseOverrides": {

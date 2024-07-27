@@ -8,7 +8,7 @@ async function getUserInfo() {
 }
 
 async function getUser() {
-  const response = await fetch('/api/HttpTrigger1');
+  const response = await fetch('/api/user');
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;
