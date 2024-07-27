@@ -1,25 +1,16 @@
-import React from 'react';
-
-async function getUserInfo() {
-  const response = await fetch('/.auth/me');
-  const payload = await response.json();
-  const { clientPrincipal } = payload;
-  return clientPrincipal;
-}
-
-async function getUser() {
-  const response = await fetch('/api/user');
-  const payload = await response.json();
-  const { clientPrincipal } = payload;
-  return clientPrincipal;
-}
-
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  const value = "World";
-  (async () => console.log(await getUserInfo()))();
-  (async () => console.log(await getUser()))();
-  return <div>Hello {value}</div>;
+  const [data, setData] = useState('');
+
+  useEffect(() => {
+    (async function () {
+      const { text } = await( await fetch(`/api/user`)).json();
+      setData(text);
+    })();
+  });
+
+  return <div>{data}</div>;
 }
 
 export default App;
