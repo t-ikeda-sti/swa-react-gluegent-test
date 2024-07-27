@@ -2,12 +2,16 @@ const { app } = require('@azure/functions');
 
 app.http('user', {
     methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    handler: async (request, context) => {
-        context.log(`Http function processed request for url "${request.url}"`);
+    authLevel: 'authenticated',
+    handler: async (req, context) => {
+        const header = req.headers.get('x-ms-client-principal');
+        const encoded = Buffer.from(header, 'base64');
+        const decoded = encoded.toString('ascii');
 
-        const name = request.query.get('name') || await request.text() || 'world';
-
-        return { body: `Hello, ${name}!` };
+        context.res = {
+          body: {
+            clientPrincipal: JSON.parse(decoded),
+          },
+        };
     }
 });
