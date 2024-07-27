@@ -2,7 +2,7 @@ const { app } = require('@azure/functions');
 
 app.http('user', {
     methods: ['GET', 'POST'],
-    authLevel: 'authenticated',
+    authLevel: 'anonymous',
     handler: async (req, context) => {
         const header = req.headers.get('x-ms-client-principal');
         const encoded = Buffer.from(header, 'base64');
