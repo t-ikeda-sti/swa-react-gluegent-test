@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
+async function getUserInfo() {
+  const response = await fetch('/.auth/me');
+  const payload = await response.json();
+  const { clientPrincipal } = payload;
+  return clientPrincipal;
+}
+
+(async () => {
+console.log(await getUserInfo());
+})();
+
 function App() {
   const [data, setData] = useState('');
 
