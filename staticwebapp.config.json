@@ -26,7 +26,7 @@
   },
   "routes": [
     {
-      "route": "/.auth/logout/complete",
+      "route": "/planets",
       "redirect": "https://sites.google.com/sios.com/planets/home"
     },
     {
