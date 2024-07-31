@@ -26,6 +26,10 @@
   },
   "routes": [
     {
+      "route": "/.auth/logout/complete",
+      "redirect": "https://sites.google.com/sios.com/planets/home"
+    },
+    {
       "route": "/*",
       "allowedRoles": [
         "authenticated"
