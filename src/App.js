@@ -8,7 +8,7 @@ async function getUserInfo() {
 }
 
 (async () => {
-console.log(await getUserInfo());
+console.log(JSON.stringify(await getUserInfo()));
 })();
 
 function App() {
